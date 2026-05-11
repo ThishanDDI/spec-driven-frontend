@@ -1,8 +1,8 @@
 <!-- Sync Impact Report
-Version Change: 0.0.0 → 1.0.0 (MAJOR: Initial constitution with React/UI standards)
-New Principles: React Components, Tailwind CSS, Mobile-First Design
+Version Change: 1.0.0 → 1.1.0 (MINOR: Added Vercel React best practices principle)
+New Principle: VI. Vercel React Best Practices (memoization, code-splitting, concurrent features, optimization)
 Templates Updated: ✅ plan-template.md, ✅ spec-template.md, ✅ tasks-template.md
-Follow-up: Consider versioning policy and testing standards in future amendments
+Reference: Vercel React optimization patterns and performance standards
 -->
 
 # Spec-Driven Frontend Constitution
@@ -32,6 +32,19 @@ This ensures developer clarity and enables automated documentation generation.
 ### V. Testing Requirements
 Components require unit tests for logic and visual regression tests for UI changes. 
 Test coverage minimum: 80% for components and utilities.
+
+### VI. Vercel React Best Practices
+Follow Vercel's React best practices for optimal performance and maintainability:
+- Use `React.memo()` for expensive pure components to prevent unnecessary re-renders
+- Implement proper memoization: `useMemo()` for computed values, `useCallback()` for stable function references
+- Leverage `React.lazy()` + `Suspense` for code-splitting on route and feature boundaries
+- Prefer controlled components for forms; minimize uncontrolled component usage
+- Use concurrent features: `useTransition()` for non-blocking state updates, `useDeferredValue()` for value debouncing
+- Optimize images with modern formats (WebP, AVIF); use `loading="lazy"` for below-the-fold images
+- Avoid prop drilling; use Context API for theme/locale/user state; Redux for complex domain state
+- Keep components small and focused; extract sub-components when exceeding 200 lines
+- Use strict equality (`===`) checks in dependencies arrays; avoid object/array literals in deps
+- Profile with React DevTools Profiler before and after optimization; measure real user metrics
 
 ## Technology Stack
 
@@ -76,4 +89,18 @@ Version changes follow semantic versioning:
 - MINOR: New principles/sections added
 - PATCH: Clarifications and wording refinements
 
-**Version**: 1.0.0 | **Ratified**: 2026-05-11 | **Last Amended**: 2026-05-11
+**Version**: 1.1.0 | **Ratified**: 2026-05-11 | **Last Amended**: 2026-05-11
+
+## 7. Performance & Optimization (Vercel React Best Practices)
+
+This project follows **Vercel React Best Practices** for optimal performance and user experience. 
+The guidelines cover memoization, code-splitting, concurrent rendering, and image optimization.
+
+For detailed implementation patterns, refer to the installed `vercel-react-best-practices` skill.
+
+Key areas:
+- Use `React.memo()` for pure components
+- Implement `useMemo()` and `useCallback()` strategically
+- Code-split with `React.lazy()` + `Suspense`
+- Optimize images (WebP, AVIF, lazy-loading)
+- Profile with React DevTools before and after changes

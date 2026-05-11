@@ -1,50 +1,79 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- Sync Impact Report
+Version Change: 0.0.0 → 1.0.0 (MAJOR: Initial constitution with React/UI standards)
+New Principles: React Components, Tailwind CSS, Mobile-First Design
+Templates Updated: ✅ plan-template.md, ✅ spec-template.md, ✅ tasks-template.md
+Follow-up: Consider versioning policy and testing standards in future amendments
+-->
+
+# Spec-Driven Frontend Constitution
+Design and implementation standards for React-based frontend applications.
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. React Functional Components Only
+All React components MUST be implemented as functional components using modern React patterns 
+(hooks, context, etc.). Class components are not permitted. This ensures consistency, 
+simplicity, and alignment with React's current best practices and ecosystem tooling.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Tailwind CSS Styling
+All styling MUST be implemented using Tailwind CSS utility classes. No CSS-in-JS, styled-components, 
+or inline styles permitted unless justified in code review. Tailwind enforces design consistency 
+and enables efficient maintenance of design systems.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Mobile-First UI Design
+All interfaces MUST be designed and implemented mobile-first. Desktop breakpoints are applied 
+progressively via Tailwind's responsive prefixes (md:, lg:, xl:). Testing on mobile dimensions 
+is required before desktop expansion.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Component Documentation
+Every component MUST include JSDoc comments describing props, return type, and usage examples. 
+This ensures developer clarity and enables automated documentation generation.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Testing Requirements
+Components require unit tests for logic and visual regression tests for UI changes. 
+Test coverage minimum: 80% for components and utilities.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Technology Stack
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+**Mandatory:**
+- React 18+ (functional components only)
+- Tailwind CSS 3+ (no alternative CSS libraries)
+- Vite (build tool and dev server)
+- Vitest + React Testing Library (testing)
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+**Optional:**
+- TypeScript (strongly recommended for type safety)
+- React Router (if routing needed)
+- State management: Context API preferred; Redux acceptable for complex state
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Development Workflow
+
+1. **Branch naming**: feature/*, bugfix/*, chore/*
+2. **Commit format**: Conventional commits (feat:, fix:, refactor:, docs:, test:)
+3. **PR requirements**: 
+   - Functional component structure verified
+   - Tailwind classes used exclusively for styling
+   - Mobile-first responsive design confirmed
+   - All tests passing (min 80% coverage)
+4. **Code review checklist**:
+   - ✓ No class components
+   - ✓ Tailwind only (no CSS modules/inline styles)
+   - ✓ Mobile-first approach applied
+   - ✓ Component props documented
+   - ✓ Tests included and passing
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all conflicting development practices. All PRs must verify 
+compliance with these principles before merge. Amendments require:
+1. Documentation of rationale
+2. Impact analysis on existing code
+3. Approval via consensus (team lead + 1 reviewer minimum)
+4. Migration plan for breaking changes
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+Version changes follow semantic versioning:
+- MAJOR: Principle removals or redefinitions
+- MINOR: New principles/sections added
+- PATCH: Clarifications and wording refinements
+
+**Version**: 1.0.0 | **Ratified**: 2026-05-11 | **Last Amended**: 2026-05-11
